@@ -26,7 +26,7 @@ SriWebpackPlugin.prototype.apply = function(compiler) {
   compiler.plugin('this-compilation', function(compilation) {
     compilation.plugin('optimize-assets', function(assets, callback) {
       Object.keys(assets).forEach(function(file) {
-        var asset = asset[file];
+        var asset = assets[file];
         var content;
 
         if (file.match(allowedExtensions)) {
