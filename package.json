@@ -17,7 +17,6 @@
     "subresource",
     "integrity",
     "webpack",
-    "webpack",
     "plugin"
   ],
   "author": "Mike Chau (@mikechau)",
