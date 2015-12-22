@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
-    "lint": "eslint ./tests ./lib"
+    "lint": "eslint ./tests ./lib",
+    "check": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,10 @@
     "@tap-format/spec": "git+https://github.com/tap-format/spec.git",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^2.1.1",
+    "glob": "^6.0.1",
     "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "crypto": "0.0.3"
   }
 }
