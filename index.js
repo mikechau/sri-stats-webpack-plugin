@@ -22,6 +22,7 @@ function SriWebpackPlugin(options) {
 
 SriWebpackPlugin.prototype.apply = function(compiler) {
   var allowedExtensions = this.regex;
+  var sriAlgorithm = this.algorithm;
 
   compiler.plugin('this-compilation', function(compilation) {
     compilation.plugin('optimize-assets', function(assets, callback) {
@@ -31,7 +32,7 @@ SriWebpackPlugin.prototype.apply = function(compiler) {
 
         if (file.match(allowedExtensions)) {
           content = asset.source();
-          asset.sri = getSriHash(content);
+          asset.sri = getSriHash(sriAlgorithm, content);
         }
       });
 
