@@ -1,0 +1,34 @@
+{
+  "name": "sri-webpack-plugin",
+  "version": "0.1.0",
+  "description": "Subresource integrity hash generator plugin for webpack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
+    "lint": "eslint ./tests ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikechau/sri-webpack-plugin.git"
+  },
+  "keywords": [
+    "sri",
+    "subresource",
+    "integrity",
+    "webpack",
+    "webpack",
+    "plugin"
+  ],
+  "author": "Mike Chau (@mikechau)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikechau/sri-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/mikechau/sri-webpack-plugin#readme",
+  "devDependencies": {
+    "@tap-format/spec": "git+https://github.com/tap-format/spec.git",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.1.1",
+    "tape": "^4.2.2"
+  }
+}
