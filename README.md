@@ -12,3 +12,9 @@ generating plugins, as the `sri` key will probably not be available inside the
 
 The sri hash is acessible via `compilation.assets['filename'].sri`.
 
+## Setup
+
+```
+npm install @mikechau/sri-webpack-plugin --save-dev
+```
+
