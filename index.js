@@ -8,7 +8,7 @@
 'use strict';
 
 var getSriHash = require('./lib/utils').getSriHash;
-var CustomStats = require('./lib/CustomStats');
+var CustomStats = require('webpack-custom-stats-patch');
 
 var DEFAULT_PARAMS = {
   algorithm: 'sha384',

@@ -3,6 +3,10 @@
   "version": "0.4.0",
   "description": "Subresource integrity hash generator plugin for webpack.",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
     "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
     "lint": "eslint ./tests ./lib",
@@ -34,7 +38,8 @@
     "webpack": "^1.12.9"
   },
   "dependencies": {
-    "crypto": "0.0.3"
+    "crypto": "0.0.3",
+    "webpack-custom-stats-patch": "0.0.2"
   },
   "peerDependencies": {
     "webpack": "~1.x"
