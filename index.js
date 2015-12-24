@@ -7,12 +7,13 @@
 
 'use strict';
 
-var getSriHash = require('./lib/getSriHash');
+var getSriHash = require('./lib/utils').getSriHash;
+var CustomStats = require('./lib/CustomStats');
 
 var DEFAULT_PARAMS = {
   algorithm: 'sha384',
   regex: (/\.(js|css)$/i)
-}
+};
 
 function SriWebpackPlugin(options) {
   var params = options || {};
@@ -37,10 +38,20 @@ SriWebpackPlugin.prototype.apply = function(compiler) {
         }
       });
 
-      compilation.__CUSTOM_DATA_SRIS = sris;
-
       callback();
     });
+  });
+
+  compiler.plugin('after-emit', function(compilation, callback) {
+    var stats = new CustomStats(compilation);
+
+    stats.addCustomStat('sris', sris);
+
+    compilation.getStats = function() {
+      return stats;
+    }
+
+    callback();
   });
 }
 

@@ -3,10 +3,10 @@
 var fs = require('fs');
 var path = require('path');
 var test = require('tape');
-var getSriHash = require('../../lib/getSriHash');
+var getSriHash = require('../../../lib/utils/getSriHash');
 
 function readFixture(name) {
-  var fixture = fs.readFileSync(path.resolve(__dirname, '../fixtures/' + name), 'utf8');
+  var fixture = fs.readFileSync(path.resolve(__dirname, '../../fixtures/' + name), 'utf8');
   return fixture;
 }
 
