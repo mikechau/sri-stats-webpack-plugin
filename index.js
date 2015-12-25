@@ -19,17 +19,17 @@ var DEFAULT_PARAMS = {
 
 function SriWebpackPlugin(options) {
   var params = options || {};
-  this.algorithm = params.algorithm || DEFAULT_PARAMS.algorithm;
-  this.regex = params.regex || DEFAULT_PARAMS.regex;
-  this.customStatsKey = params.customStatsKey || DEFAULT_PARAMS.customStatsKey;
-  this.assetKey = params.assetKey || DEFAULT_PARAMS.assetKey;
+  this._algorithm = params.algorithm || DEFAULT_PARAMS.algorithm;
+  this._regex = params.regex || DEFAULT_PARAMS.regex;
+  this._customStatsKey = params.customStatsKey || DEFAULT_PARAMS.customStatsKey;
+  this._assetKey = params.assetKey || DEFAULT_PARAMS.assetKey;
 };
 
 SriWebpackPlugin.prototype.apply = function(compiler) {
-  var sriAlgorithm = this.algorithm;
-  var allowedExtensions = this.regex;
-  var customStatsKey = this.customStatsKey;
-  var assetKey = this.assetKey;
+  var sriAlgorithm = this._algorithm;
+  var allowedExtensions = this._regex;
+  var customStatsKey = this._customStatsKey;
+  var assetKey = this._assetKey;
   var sris = {};
 
   compiler.plugin('this-compilation', function(compilation) {
