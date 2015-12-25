@@ -49,7 +49,6 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
           integrity = getSriHash(sriAlgorithm, content);
           assetStat[assetKey] = integrity;
           sris[file] = assetStat;
-          compilation.assets[file].integrity = integrity;
         }
       });
 
