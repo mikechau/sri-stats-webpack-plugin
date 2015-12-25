@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "crypto": "0.0.3",
-    "webpack-custom-stats-patch": "git+https://github.com/mikechau/webpack-custom-stats-patch.git"
+    "webpack-custom-stats-patch": "^0.1.0"
   },
   "peerDependencies": {
     "webpack": "~1.x"
