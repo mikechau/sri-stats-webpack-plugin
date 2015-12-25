@@ -1,6 +1,6 @@
 # sri-stats-webpack-plugin
 
-[![npm version](https://badge.fury.io/js/%40mikechau%2Fsri-webpack-plugin.svg)](https://badge.fury.io/js/%40mikechau%2Fsri-webpack-plugin)
+[![npm version](https://badge.fury.io/js/sri-webpack-plugin.svg)](https://badge.fury.io/js/sri-webpack-plugin)
 
 Most of the code based on [@roman01la's](https://github.com/roman01la) [webpack-sri](https://github.com/roman01la/webpack-sri/blob/master/index.js).
 
