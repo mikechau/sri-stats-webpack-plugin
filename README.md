@@ -36,6 +36,7 @@ var config = {
   plugins: [
     new SriStatsPlugin({
       algorithm: 'sha512',
+      allow: (/\.(js|css)$/i/),
       customStatsKey: 'rails',
       assetKey: 'integrity'
     })
@@ -46,12 +47,14 @@ var config = {
 
 ## Configuration
 
-- `algorithm`: The hashing algorithm, by default it uses `sha384`.
-- `allow`: This is a regex to allow what files should be hashed. By default it
-  is `/\.(js|css)$/i/`, it will only hash `.js` or `.css` files.
-- `customStatsKey`: This is the parent key the mapping is saved to. By default
-  this is set to `sris`, you may want to change this if you are using it with
-  *SprocketsStatsWebpackPlugin*.
-- `assetKey`: This is the child key that the hash will be associated to. By
-  default it is `integrity`.
+- `algorithm`: The hashing algorithm to use. Default: `sha384`.
+- `allow`: This is a regex to allow what files should be hashed. The default
+  regex is set to allow only `.js` or `.css` files. Default: `/\.(js|css)$/i/`.
+- `customStatsKey`: This is the parent key the mapping is saved to. You will
+  probably want to change this if you are using it with the
+  *SprocketsStatsWebpackPlugin*. Default: `sris`.
+- `assetKey`: This is the child key that the hash will be associated to.
+  Default: `integrity`.
 
+## License
+MIT.
