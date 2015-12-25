@@ -1,6 +1,6 @@
 # sri-stats-webpack-plugin
 
-[![npm version](https://badge.fury.io/js/sri-webpack-plugin.svg)](https://badge.fury.io/js/sri-webpack-plugin)
+[![npm version](https://badge.fury.io/js/sri-stats-webpack-plugin.svg)](https://badge.fury.io/js/sri-stats-webpack-plugin)
 
 Most of the code based on [@roman01la's](https://github.com/roman01la) [webpack-sri](https://github.com/roman01la/webpack-sri/blob/master/index.js).
 
@@ -23,7 +23,7 @@ You will need a separate stats plugin in order to write it to an asset manifest.
 ## Setup
 
 ```
-npm install sri-webpack-plugin --save-dev
+npm install sri-stats-webpack-plugin --save-dev
 ```
 
 ## Usage
