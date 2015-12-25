@@ -12,7 +12,7 @@ var CustomStats = require('webpack-custom-stats-patch');
 
 var DEFAULT_PARAMS = {
   algorithm: 'sha384',
-  regex: (/\.(js|css)$/i),
+  allow: (/\.(js|css)$/i),
   customStatsKey: 'sris',
   assetKey: 'integrity'
 };
@@ -20,14 +20,14 @@ var DEFAULT_PARAMS = {
 function SriWebpackPlugin(options) {
   var params = options || {};
   this._algorithm = params.algorithm || DEFAULT_PARAMS.algorithm;
-  this._regex = params.regex || DEFAULT_PARAMS.regex;
+  this._allow = params.allow || DEFAULT_PARAMS.allow;
   this._customStatsKey = params.customStatsKey || DEFAULT_PARAMS.customStatsKey;
   this._assetKey = params.assetKey || DEFAULT_PARAMS.assetKey;
-};
+}
 
 SriWebpackPlugin.prototype.apply = function(compiler) {
   var sriAlgorithm = this._algorithm;
-  var allowedExtensions = this._regex;
+  var whitelistRegex = this._allow;
   var customStatsKey = this._customStatsKey;
   var assetKey = this._assetKey;
   var sris = {};
@@ -40,7 +40,7 @@ SriWebpackPlugin.prototype.apply = function(compiler) {
         var content;
         var integrity;
 
-        if (file.match(allowedExtensions)) {
+        if (file.match(whitelistRegex)) {
           content = asset.source();
           integrity = getSriHash(sriAlgorithm, content);
           assetStat[assetKey] = integrity;
@@ -60,6 +60,6 @@ SriWebpackPlugin.prototype.apply = function(compiler) {
 
     callback();
   });
-}
+};
 
 module.exports = SriWebpackPlugin;

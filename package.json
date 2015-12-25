@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
-    "lint": "eslint ./tests ./lib",
+    "lint": "eslint ./tests ./lib index.js",
     "check": "npm run lint && npm run test"
   },
   "repository": {
