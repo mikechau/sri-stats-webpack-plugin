@@ -1,6 +1,6 @@
 {
-  "name": "sri-webpack-plugin",
-  "version": "0.5.0",
+  "name": "sri-stats-webpack-plugin",
+  "version": "0.6.0",
   "description": "Subresource integrity hash generator plugin for webpack.",
   "main": "index.js",
   "files": [
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikechau/sri-webpack-plugin.git"
+    "url": "git+https://github.com/mikechau/sri-stats-webpack-plugin.git"
   },
   "keywords": [
     "sri",
@@ -26,9 +26,9 @@
   "author": "Mike Chau (@mikechau)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mikechau/sri-webpack-plugin/issues"
+    "url": "https://github.com/mikechau/sri-stats-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/mikechau/sri-webpack-plugin#readme",
+  "homepage": "https://github.com/mikechau/sri-stats-webpack-plugin#readme",
   "devDependencies": {
     "@tap-format/spec": "git+https://github.com/tap-format/spec.git",
     "eslint": "^1.10.3",
