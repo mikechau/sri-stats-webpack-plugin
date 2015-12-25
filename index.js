@@ -17,7 +17,7 @@ var DEFAULT_PARAMS = {
   assetKey: 'integrity'
 };
 
-function SriWebpackPlugin(options) {
+function SriStatsWebpackPlugin(options) {
   var params = options || {};
   this._algorithm = params.algorithm || DEFAULT_PARAMS.algorithm;
   this._allow = params.allow || DEFAULT_PARAMS.allow;
@@ -25,7 +25,11 @@ function SriWebpackPlugin(options) {
   this._assetKey = params.assetKey || DEFAULT_PARAMS.assetKey;
 }
 
-SriWebpackPlugin.prototype.apply = function(compiler) {
+SriStatsWebpackPlugin.prototype.getAlgorithm = function getAlgorithm() {
+  return this._algorithm;
+};
+
+SriStatsWebpackPlugin.prototype.apply = function(compiler) {
   var sriAlgorithm = this._algorithm;
   var whitelistRegex = this._allow;
   var customStatsKey = this._customStatsKey;
@@ -62,4 +66,4 @@ SriWebpackPlugin.prototype.apply = function(compiler) {
   });
 };
 
-module.exports = SriWebpackPlugin;
+module.exports = SriStatsWebpackPlugin;
