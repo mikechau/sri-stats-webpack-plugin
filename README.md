@@ -16,18 +16,20 @@ Example:
 
 ```
 // webpack stats
+
 compilation.getStats().toJson().sris
-// # => {
-//  'main-459130c16ce3c68b595e.js': {
-//    integrity: 'sha384-Lgg9yFvipJWo8BEZOJhBN2wCPtr/RVl9EWeXFHUzQKtUduAyATSIl79NJbfzZT8p'
-//    }
-//  }
+# => {
+  'main-459130c16ce3c68b595e.js': {
+    integrity: 'sha384-Lgg9yFvipJWo8BEZOJhBN2wCPtr/RVl9EWeXFHUzQKtUduAyATSIl79NJbfzZT8p'
+  }
+}
 
 // webpack compilation
+
 compilation.__RESULTS_SRIS
-// # => {
-//    'main-459130c16ce3c68b595e.js': 'sha384-Lgg9yFvipJWo8BEZOJhBN2wCPtr/RVl9EWeXFHUzQKtUduAyATSIl79NJbfzZT8p'
-//  }
+# => {
+  'main-459130c16ce3c68b595e.js': 'sha384-Lgg9yFvipJWo8BEZOJhBN2wCPtr/RVl9EWeXFHUzQKtUduAyATSIl79NJbfzZT8p'
+}
 ```
 
 ## Setup
@@ -40,6 +42,7 @@ npm install sri-stats-webpack-plugin --save-dev
 
 ```js
 // Your webpack config
+
 var path = require('path');
 var SriStatsPlugin = require('sri-stats-webpack-plugin');
 
@@ -57,7 +60,6 @@ var config = {
     })
  ]
 };
-
 ```
 
 ## Configuration
