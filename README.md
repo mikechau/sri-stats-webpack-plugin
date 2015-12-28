@@ -14,7 +14,7 @@ mapping is saved into `stats.toJson()`.
 
 Example:
 
-```
+```js
 // webpack stats
 
 compilation.getStats().toJson().sris
