@@ -39,9 +39,10 @@
   },
   "dependencies": {
     "crypto": "0.0.3",
-    "webpack-custom-stats-patch": "^0.1.0"
+    "webpack-custom-stats-patch": "^0.2.0"
   },
   "peerDependencies": {
-    "webpack": "~1.x"
+    "webpack": "~1.x",
+    "webpack-custom-stats-patch": "~0.2.x"
   }
 }

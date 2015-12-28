@@ -7,6 +7,8 @@
 
 'use strict';
 
+var fs = require('fs');
+var path = require('path');
 var getSriHash = require('./lib/utils').getSriHash;
 var CustomStats = require('webpack-custom-stats-patch');
 
@@ -14,7 +16,11 @@ var DEFAULT_PARAMS = {
   algorithm: 'sha384',
   allow: (/\.(js|css)$/i),
   customStatsKey: 'sris',
-  assetKey: 'integrity'
+  assetKey: 'integrity',
+  saveAs: path.join(process.cwd(), 'build', 'subresource-integrity-map.json'),
+  write: false,
+  writeDirectMapping: true,
+  resultsKey: '__RESULTS_SRIS'
 };
 
 function SriStatsWebpackPlugin(options) {
@@ -23,6 +29,10 @@ function SriStatsWebpackPlugin(options) {
   this._allow = params.allow || DEFAULT_PARAMS.allow;
   this._customStatsKey = params.customStatsKey || DEFAULT_PARAMS.customStatsKey;
   this._assetKey = params.assetKey || DEFAULT_PARAMS.assetKey;
+  this._saveAs = params.saveAs || DEFAULT_PARAMS.saveAs;
+  this._write = ((params.write === undefined) ? DEFAULT_PARAMS.write : params.write);
+  this._writeDirectMapping = ((params.writeDirectMapping === undefined) ? DEFAULT_PARAMS.writeDirectMapping : params.writeDirectMapping);
+  this._resultsKey = params.resultsKey || DEFAULT_PARAMS.resultsKey;
 }
 
 SriStatsWebpackPlugin.prototype.getAlgorithm = function getAlgorithm() {
@@ -34,6 +44,11 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
   var whitelistRegex = this._allow;
   var customStatsKey = this._customStatsKey;
   var assetKey = this._assetKey;
+  var savePath = this._saveAs;
+  var writeEnabled = this._write;
+  var writeDirectMapping = this._writeDirectMapping;
+  var resultsKey = this._resultsKey;
+  var directMapping = {};
   var sris = {};
 
   compiler.plugin('this-compilation', function(compilation) {
@@ -49,6 +64,7 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
           integrity = getSriHash(sriAlgorithm, content);
           assetStat[assetKey] = integrity;
           sris[file] = assetStat;
+          directMapping[file] = integrity;
         }
       });
 
@@ -60,8 +76,24 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
     var stats = new CustomStats(compilation);
 
     stats.addCustomStat(customStatsKey, sris);
+    compilation[resultsKey] = directMapping;
 
     callback();
+  });
+
+  compiler.plugin('done', function(stats) {
+    var output;
+
+    if (writeEnabled) {
+      output = ((writeDirectMapping) ? stats.compilation[resultsKey] : sris);
+
+      fs.writeFile(savePath, JSON.stringify(output, null, '  '), function(err) {
+        if (err) {
+          console.error('Failed to write stats.', err);
+          throw err;
+        }
+      });
+    }
   });
 };
 

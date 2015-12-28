@@ -4,7 +4,8 @@
     "comma-dangle": [2, "never"],
     "func-names": 0,
     "space-before-function-paren": [2, "never"],
-    "strict": [2, "global"]
+    "strict": [2, "global"],
+    "no-console": 0
   }
 }
 

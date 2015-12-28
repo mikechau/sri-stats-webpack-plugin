@@ -1,0 +1,21 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --progress --profile --colors",
+    "reinstall": "npm uninstall sri-stats-webpack-plugin && npm install"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.5",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "sri-stats-webpack-plugin": "file:../",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.9"
+  }
+}
