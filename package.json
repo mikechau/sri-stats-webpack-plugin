@@ -1,6 +1,6 @@
 {
   "name": "sri-stats-webpack-plugin",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Subresource integrity hash generator plugin for webpack.",
   "main": "index.js",
   "files": [
