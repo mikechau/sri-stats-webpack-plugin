@@ -6,7 +6,7 @@ Most of the code based on [@roman01la's](https://github.com/roman01la) [webpack-
 
 This is a webpack plugin which generates a [subresource integrity hash](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity). It adds the hash to webpack's `stats` object.
 
-It creates a direct mapping with `[asset] => sri hash`, and then another
+It creates a direct mapping with `[asset] => sri hash`, and another
 mapping of `[asset] => { [integrityKey]: hash }`.
 
 The direct mapping is saved into webpack's `compilation`, while the secondary
