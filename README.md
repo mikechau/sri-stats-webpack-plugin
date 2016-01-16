@@ -54,7 +54,7 @@ var config = {
       customStatsKey: 'rails',
       assetKey: 'integrity',
       saveAs: path.join(__dirname, 'build', 'subresource-integrity-mapping.json'),
-      writeEnabled: true,
+      write: true,
       writeDirectMapping: true,
       resultsKey: '__RESULTS_SRIS'
     })
