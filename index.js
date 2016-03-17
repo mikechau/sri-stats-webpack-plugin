@@ -72,7 +72,7 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
     });
   });
 
-  compiler.plugin('after-emit', function(compilation, callback) {
+  compiler.plugin('emit', function(compilation, callback) {
     var stats = new CustomStats(compilation);
 
     stats.addCustomStat(customStatsKey, sris);
