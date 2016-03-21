@@ -56,7 +56,8 @@ var config = {
       saveAs: path.join(__dirname, 'build', 'subresource-integrity-mapping.json'),
       write: true,
       writeDirectMapping: true,
-      resultsKey: '__RESULTS_SRIS'
+      resultsKey: '__RESULTS_SRIS',
+      runAfterEmit: true
     })
  ]
 };
@@ -84,6 +85,10 @@ var config = {
   Default: `true`
 - `resultsKey`: Where to save the results to in webpack's `compilation` object.
   Default: `__RESULTS_SRIS`
+- `runAfterEmit`: Boolean option, whether to calculate hashes during or after
+  emit stage. If HTMLWebpackPlugin is supposed to pick up the hashes (during
+  emit stage), set to false and run this plugin first.
+  Default: `true`
 
 ## License
 MIT.
