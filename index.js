@@ -20,7 +20,8 @@ var DEFAULT_PARAMS = {
   saveAs: path.join(process.cwd(), 'build', 'subresource-integrity-map.json'),
   write: false,
   writeDirectMapping: true,
-  resultsKey: '__RESULTS_SRIS'
+  resultsKey: '__RESULTS_SRIS',
+  runAfterEmit: 'true'
 };
 
 function SriStatsWebpackPlugin(options) {
@@ -33,6 +34,7 @@ function SriStatsWebpackPlugin(options) {
   this._write = ((params.write === undefined) ? DEFAULT_PARAMS.write : params.write);
   this._writeDirectMapping = ((params.writeDirectMapping === undefined) ? DEFAULT_PARAMS.writeDirectMapping : params.writeDirectMapping);
   this._resultsKey = params.resultsKey || DEFAULT_PARAMS.resultsKey;
+  this._runAfterEmit = ((params.runAfterEmit === undefined) ? DEFAULT_PARAMS.runAfterEmit : params.runAfterEmit);
 }
 
 SriStatsWebpackPlugin.prototype.getAlgorithm = function getAlgorithm() {
@@ -48,6 +50,7 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
   var writeEnabled = this._write;
   var writeDirectMapping = this._writeDirectMapping;
   var resultsKey = this._resultsKey;
+  var stage = this._runAfterEmit ? 'after-emit' : 'emit';
   var directMapping = {};
   var sris = {};
 
@@ -72,7 +75,7 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
     });
   });
 
-  compiler.plugin('after-emit', function(compilation, callback) {
+  compiler.plugin(stage, function(compilation, callback) {
     var stats = new CustomStats(compilation);
 
     stats.addCustomStat(customStatsKey, sris);
