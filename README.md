@@ -77,7 +77,7 @@ var config = {
 - `assetKey`: This is the child key that the hash will be associated to.
   Default: `integrity`
 - `saveAs`: *Absolute* path to where to save the output to.
-  Default: `path.join(process.env(), 'build', 'subresource-integrity-mapping.json')`
+  Default: `path.join(process.env.WEBPACK_OUTPUT_PATH, 'build', 'subresource-integrity-mapping.json')`. If `WEBPACK_OUTPUT_PATH`, is not specified, it will fallback to `process.cwd()`.
 - `write`: Boolean option, of whether to write the stats file or not.
   Default: `false`
 - `writeDirectMapping`: Boolean option, enables writing `[asset] => [hash]`.
