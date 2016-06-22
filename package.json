@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/mikechau/sri-stats-webpack-plugin#readme",
   "devDependencies": {
+    "ava": "^0.15.2",
     "webpack": "^1.13.1"
   },
   "dependencies": {
