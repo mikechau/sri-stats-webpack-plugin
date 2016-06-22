@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/mikechau/sri-stats-webpack-plugin#readme",
   "devDependencies": {
-    "webpack": "^1.12.9"
+    "webpack": "^1.13.1"
   },
   "dependencies": {
     "webpack-custom-stats-patch": "^0.2.0"
