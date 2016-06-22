@@ -30,15 +30,9 @@
   },
   "homepage": "https://github.com/mikechau/sri-stats-webpack-plugin#readme",
   "devDependencies": {
-    "@tap-format/spec": "git+https://github.com/tap-format/spec.git",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.1.1",
-    "glob": "^6.0.1",
-    "tape": "^4.2.2",
     "webpack": "^1.12.9"
   },
   "dependencies": {
-    "crypto": "0.0.3",
     "webpack-custom-stats-patch": "^0.2.0"
   },
   "peerDependencies": {
