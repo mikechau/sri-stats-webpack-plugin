@@ -8,7 +8,10 @@
     "lib"
   ],
   "scripts": {
+    "build:integration": "cd example && npm run reinstall && npm run build",
     "test": "ava",
+    "test:integration": "npm run build:integration && ava example/test/SriStatsManifest.test.js",
+    "test:all": "npm test && npm run test:integration",
     "lint": "eslint ./test ./lib index.js",
     "check": "npm run lint && npm run test"
   },
