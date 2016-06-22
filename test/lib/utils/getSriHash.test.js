@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 var path = require('path');
-var test = require('tape');
+var test = require('ava');
 var getSriHash = require('../../../lib/utils/getSriHash');
 
 function readFixture(name) {
@@ -10,8 +10,8 @@ function readFixture(name) {
   return fixture;
 }
 
-test('getSriHash()', function(assert) {
-  assert.plan(2);
+test('generates valid hashes', function(t) {
+  t.plan(2);
 
   [
     {
@@ -29,10 +29,8 @@ test('getSriHash()', function(assert) {
     var actual = getSriHash(scenario.algo, fixture);
     var expected = scenario.sri;
 
-    assert.equal(actual, expected,
+    t.is(actual, expected,
       'should return (' + expected + ') for ' + scenario.fixture
     );
   });
-
-  assert.end();
 });
