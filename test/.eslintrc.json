@@ -1,0 +1,6 @@
+{
+  "extends": "eslint-config-mc/ava",
+  "rules": {
+    "func-names": 0
+  }
+}
