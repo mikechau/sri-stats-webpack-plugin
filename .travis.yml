@@ -26,4 +26,4 @@ cache:
     - example/node_modules
 
 script:
-  - npm run test:all
+  - npm run test:ci
