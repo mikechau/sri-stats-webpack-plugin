@@ -8,8 +8,8 @@
     "lib"
   ],
   "scripts": {
-    "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
-    "lint": "eslint ./tests ./lib index.js",
+    "test": "ava",
+    "lint": "eslint ./test ./lib index.js",
     "check": "npm run lint && npm run test"
   },
   "repository": {
@@ -42,5 +42,12 @@
   },
   "peerDependencies": {
     "webpack": "~1.x"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "failFast": true,
+    "verbose": true
   }
 }
