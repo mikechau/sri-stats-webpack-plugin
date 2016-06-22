@@ -1,6 +1,6 @@
 # sri-stats-webpack-plugin
 
-[![npm version](https://badge.fury.io/js/sri-stats-webpack-plugin.svg)](https://badge.fury.io/js/sri-stats-webpack-plugin)
+[![npm version](https://badge.fury.io/js/sri-stats-webpack-plugin.svg)](https://badge.fury.io/js/sri-stats-webpack-plugin) [![Build Status](https://travis-ci.org/mikechau/sri-stats-webpack-plugin.svg?branch=master)](https://travis-ci.org/mikechau/sri-stats-webpack-plugin) [![Dependency Status](https://david-dm.org/mikechau/sri-stats-webpack-plugin.svg)](https://david-dm.org/mikechau/sri-stats-webpack-plugin) [![devDependency Status](https://david-dm.org/mikechau/sri-stats-webpack-plugin/dev-status.svg)](https://david-dm.org/mikechau/sri-stats-webpack-plugin#info=devDependencies)
 
 Most of the code based on [@roman01la's](https://github.com/roman01la) [webpack-sri](https://github.com/roman01la/webpack-sri/blob/master/index.js).
 

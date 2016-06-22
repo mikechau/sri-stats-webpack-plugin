@@ -8,8 +8,12 @@
     "lib"
   ],
   "scripts": {
-    "test": "tape ./tests/index.js | ./node_modules/.bin/tf-spec",
-    "lint": "eslint ./tests ./lib index.js",
+    "build:integration": "cd example && npm run reinstall && npm run build",
+    "test": "ava",
+    "test:all": "npm test && npm run build:integration && npm run test:integration",
+    "test:ci": "npm run test && npm run test:integration",
+    "test:integration": "ava ./example/test/SriStatsManifest.test.js",
+    "lint": "eslint ./test ./lib index.js",
     "check": "npm run lint && npm run test"
   },
   "repository": {
@@ -30,18 +34,24 @@
   },
   "homepage": "https://github.com/mikechau/sri-stats-webpack-plugin#readme",
   "devDependencies": {
-    "@tap-format/spec": "git+https://github.com/tap-format/spec.git",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.1.1",
-    "glob": "^6.0.1",
-    "tape": "^4.2.2",
-    "webpack": "^1.12.9"
+    "ava": "^0.15.2",
+    "eslint": "^2.13.1",
+    "eslint-config-mc": "^0.6.5",
+    "eslint-plugin-ava": "^2.5.0",
+    "eslint-plugin-import": "^1.8.1",
+    "webpack": "^1.13.1"
   },
   "dependencies": {
-    "crypto": "0.0.3",
-    "webpack-custom-stats-patch": "^0.2.0"
+    "webpack-custom-stats-patch": "^0.3.0"
   },
   "peerDependencies": {
     "webpack": "~1.x"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "failFast": true,
+    "verbose": true
   }
 }

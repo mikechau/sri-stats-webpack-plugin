@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: [2, { "args": "none" }], func-names: 0, no-underscore-dangle: 0 */
+
 /**
  *  Script based on @roman01la's webpack-sri.
  *
@@ -9,7 +11,9 @@
 
 var fs = require('fs');
 var path = require('path');
-var getSriHash = require('./lib/utils').getSriHash;
+var utils = require('./lib/utils');
+var getSriHash = utils.getSriHash;
+var getParam = utils.getParam;
 var CustomStats = require('webpack-custom-stats-patch');
 
 var DEFAULT_PARAMS = {
@@ -26,15 +30,16 @@ var DEFAULT_PARAMS = {
 
 function SriStatsWebpackPlugin(options) {
   var params = options || {};
+
   this._algorithm = params.algorithm || DEFAULT_PARAMS.algorithm;
   this._allow = params.allow || DEFAULT_PARAMS.allow;
   this._customStatsKey = params.customStatsKey || DEFAULT_PARAMS.customStatsKey;
   this._assetKey = params.assetKey || DEFAULT_PARAMS.assetKey;
   this._saveAs = params.saveAs || DEFAULT_PARAMS.saveAs;
-  this._write = ((params.write === undefined) ? DEFAULT_PARAMS.write : params.write);
-  this._writeDirectMapping = ((params.writeDirectMapping === undefined) ? DEFAULT_PARAMS.writeDirectMapping : params.writeDirectMapping);
+  this._write = getParam(params.write, DEFAULT_PARAMS.write);
+  this._writeDirectMapping = getParam(params.writeDirectMapping, DEFAULT_PARAMS.writeDirectMapping);
   this._resultsKey = params.resultsKey || DEFAULT_PARAMS.resultsKey;
-  this._runAfterEmit = ((params.runAfterEmit === undefined) ? DEFAULT_PARAMS.runAfterEmit : params.runAfterEmit);
+  this._runAfterEmit = getParam(params.runAfterEmit, DEFAULT_PARAMS.runAfterEmit);
 }
 
 SriStatsWebpackPlugin.prototype.getAlgorithm = function getAlgorithm() {
@@ -79,7 +84,7 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
     var stats = new CustomStats(compilation);
 
     stats.addCustomStat(customStatsKey, sris);
-    compilation[resultsKey] = directMapping;
+    compilation[resultsKey] = directMapping; // eslint-disable-line no-param-reassign
 
     callback();
   });
@@ -92,7 +97,7 @@ SriStatsWebpackPlugin.prototype.apply = function(compiler) {
 
       fs.writeFile(savePath, JSON.stringify(output, null, '  '), function(err) {
         if (err) {
-          console.error('Failed to write stats.', err);
+          console.error('Failed to write stats.', err); // eslint-disable-line no-console
           throw err;
         }
       });
