@@ -39,7 +39,7 @@
     "eslint-config-mc": "^0.6.5",
     "eslint-plugin-ava": "^2.5.0",
     "eslint-plugin-import": "^1.8.1",
-    "webpack": "^1.13.1"
+    "webpack": "^2.6.1"
   },
   "dependencies": {
     "webpack-custom-stats-patch": "^0.3.0"
